@@ -1,0 +1,13 @@
+version: "3"
+services:
+  node-app:
+    build:
+      context: .
+      dockerfile: ./prod/Dockerfile
+      args:
+        NODE_ENV: production
+    environment:
+      - NODE_ENV=production
+      - MONGO_USER=root
+      - MONGO_PASSWORD=example
+    command: node ./dist/index.js
